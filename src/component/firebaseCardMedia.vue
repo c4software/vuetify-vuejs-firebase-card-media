@@ -141,7 +141,7 @@
           }
         }).catch(() => {
           this.loading = false;
-          this.defaultImage = previewImage;
+          this.defaultImage = this.previewImage;
           this.hasFile = false;
           this.filename = "";
           this.fileLink = "";
