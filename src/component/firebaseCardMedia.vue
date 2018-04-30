@@ -36,7 +36,7 @@
     created: function() {
       this.getMetaData()
       if(this.previewImage){
-        defaultImage = this.previewImage;
+        this.defaultImage = this.previewImage;
       }
     },
     watch: {

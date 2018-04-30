@@ -1,6 +1,6 @@
 {
   "name": "vuetify-vuejs-firebase-card-media",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A cover component with linked with your Firebase Storage project",
   "main": "dist/index.js",
   "dependencies": {},
