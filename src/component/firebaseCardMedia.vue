@@ -163,14 +163,14 @@
 
         this.loading = true;
 
-        this.previewImage = URL.createObjectURL(file)
-
         /**
          * Upload file to firebase
          */
         this.getFileRef().put(file).then(() => {
-          this.getMetaData();
+          this.filename = file.name;
+          this.hasFile = true;
           this.loading = false;
+          this.defaultImage = URL.createObjectURL(file);
           this.$emit('onFileUpload', this.targetPath());
         }).catch(() => {
           this.$emit('onFileUploadError', this.targetPath());

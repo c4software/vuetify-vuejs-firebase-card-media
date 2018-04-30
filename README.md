@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/vuetify-vuejs-firebase-card-media.svg)](https://www.npmjs.com/package/vuetify-vuejs-firebase-card-media)
 
+A cover component with linked with your Firebase Storage project.
+
 ## Installation
 
 ```sh
