@@ -163,6 +163,8 @@
 
         this.loading = true;
 
+        this.previewImage = URL.createObjectURL(file)
+
         /**
          * Upload file to firebase
          */
