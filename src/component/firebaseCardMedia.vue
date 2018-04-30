@@ -1,15 +1,12 @@
 <template>
 
-  <v-card-media :src="this.filename" class="mb-1" height="200px">
+  <v-card-media :src="this.defaultImage" class="mb-1" :height="coverSize">
     <input type="file" ref="loader" @change="onChangeLoader" v-bind:accept="acceptedFileFormat" hidden>
     <v-container fill-height fluid>
       <v-layout fill-height>
         <v-flex xs12 align-end text-xs-right flexbox>
-          <v-btn @click="() => this.$refs.loader.click()">
+          <v-btn @click="() => this.$refs.loader.click()" :loading="loading">
             {{this.filename?this.modifyBtnLabel:this.createBtnLabel}}
-          </v-btn>
-          <v-btn v-if="this.filename" :loading="loading" @click="() => this.deleteFile()" :title="this.deleteFileLabel">
-            <v-icon>remove</v-icon>
           </v-btn>
         </v-flex>
       </v-layout>
@@ -25,7 +22,7 @@
       return {
         hasError: false,
         loading: false,
-        defaultImage: false,
+        defaultImage: "",
         hasFile: false,
         filename: "",
         fileLink: ""
@@ -38,6 +35,9 @@
     },
     created: function() {
       this.getMetaData()
+      if(this.previewImage){
+        defaultImage = this.previewImage;
+      }
     },
     watch: {
       path: function(){
@@ -62,6 +62,18 @@
       unsuportedMediaTypeLabel: {
         type: String,
         default: "Unsuported Media Type. Please use a correct file format"
+      },
+
+      previewImage: {
+        type: String,
+        required: false,
+        default: undefined
+      },
+
+      coverSize: {
+        type: String,
+        required: false,
+        default: "200px"
       },
 
       /**
@@ -129,7 +141,7 @@
           }
         }).catch(() => {
           this.loading = false;
-          this.defaultImage = false;
+          this.defaultImage = previewImage;
           this.hasFile = false;
           this.filename = "";
           this.fileLink = "";

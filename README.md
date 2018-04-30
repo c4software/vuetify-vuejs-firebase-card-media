@@ -15,6 +15,8 @@ npm install vuetify-vuejs-firebase-card-media --save
   <firebaseCardMedia
     path="YOUR/FOLDER/"
     :storage="getStorage()"
+    previewImage="http://…"
+    coverSize="200px"
     targetFileName="image.png"
     createBtnLabel="Choose the cover"
     modifyBtnLabel="Modify the cover"
