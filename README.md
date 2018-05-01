@@ -4,6 +4,8 @@
 
 A cover component with linked with your Firebase Storage project.
 
+![preview.png](preview.png)
+
 ## Installation
 
 ```sh
